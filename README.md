@@ -21,7 +21,7 @@ needs:
 | **Food Add Sound**       | _Crock Pot Finished Cooking_ | What sound should be played when a unique dish is added to the list?        |
 | **Food Remove Sound**    | _Crock Pot Built_            | What sound should be played when a dish is removed from the list?	          |
 | **Toggle Food Menu**     | _V_                          | Use a button to open/close the food menu.                                   |
-| **Portal Delete Memory** | _True_                       | Memory	Should using the portal to switch characters delete the food timers? |
+| **Portal Delete Memory** | _True_                       | Should using the portal to switch characters delete the food timers?        |
 | **Warly-Only**           | _False_                      | Should the widget only turn on when you're Warly?                           |
 | **Time Persistence**     | _False_                      | Should the food time not progress for non-Warly characters?                 |
 | **Food Timer**           | _Default_                    | The time the foods will be timed for when consumed.                         | 
