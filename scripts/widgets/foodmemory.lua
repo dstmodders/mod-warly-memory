@@ -14,6 +14,7 @@ local temp_spice_identifiers = {}
 local temp_timers = {}
 local temp_spice_timers = {}
 local temp_buff_timers = {}
+local save_name
 
 local food_name_text_size, timer_text_size, num_eaten_text_size, stat_text_size,bufftimer_text_size,spice_timer_text_size
 food_name_text_size = 28
@@ -131,8 +132,8 @@ end
 
 local function SavePersistentData(self)-- Great thing about the class this time is that it has all its data in one place and isn't spread around a few entities.
     --That means we don't have to use ThePlayer to sync data up.
-    if not TheWorld and TheWorld.net then print("Error: No Seed") return nil end
-    local seed = TheWorld.net.components.shardstate:GetMasterSessionId()
+    if not TheWorld then print("Error: No Seed") return nil end
+    local seed = save_name
     local world_seed = TheWorld.meta.seed
     -- Seeds may sometimes differ from other effects, but the mastersessionid should stay the same whichever shard you're in at the same server.
     if seed then
@@ -162,7 +163,7 @@ end
 local function GetPersistantData(self)
     if not TheWorld then print("Error: No Seed") return nil end
     local persistdata = {}
-    local seed = TheWorld.net.components.shardstate:GetMasterSessionId()
+    local seed = save_name
     
     --local id = KnownModIndex:GetModActualName("Warly Memory").."-"..seed
     local id = KnownModIndex:GetModActualName("Warly Memory")
@@ -224,7 +225,11 @@ local FoodMemory = Class(Widget,function(self,owner)
         scrn_x,scrn_z = TheSim:GetScreenSize()
         h_x = scrn_x/2
         h_z = scrn_z/2
-		
+        if TheWorld.net then
+            save_name = TheWorld.net.components.shardstate:GetMasterSessionId()
+            -- Our UI gets added once the player HUD exists. The cave shard SHOULD exist by then.
+        end
+        
         self.owner = owner
         if not owner.components.timer then
             owner:AddComponent("timer")
