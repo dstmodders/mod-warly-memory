@@ -1,6 +1,6 @@
 name = "Warly Memory"
 author = "sauktux"
-version = "1.4.2"
+version = "1.4.3"
 
 forumthread = ""
 description = "Remember what food you've eaten recently."
