@@ -1,0 +1,11 @@
+### Intellij ###
+.idea/
+
+### VisualStudioCode ###
+.vscode/
+
+### Lua ###
+# LuaCov
+coverage/
+lcov.info
+luacov.*
