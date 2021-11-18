@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
       - name: Lint
-        uses: dstmodders/github-action@main
+        uses: dstmodders/action@main
         with:
           luacheck: true
           prettier: true
