@@ -169,7 +169,7 @@ local function GetPersistantData(self)
     local id = KnownModIndex:GetModActualName("Warly Memory")
     if seed then
         TheSim:GetPersistentString(id,function(success,data) --TheSim should exist in all cases?
-            if success then 
+            if success and type(data) == "string" and string.len(string.gsub(data," ","")) > 1 then
                 persistdata = json.decode(data)
             end 
         end,false)
